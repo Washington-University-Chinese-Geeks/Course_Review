@@ -200,16 +200,26 @@ Pass multi-line strings with template literals: ``content={`...`}``.
 Never translate the `docs/` Chinese files in place. Always mirror into
 `i18n/en/...`.
 
-## 7. Auto-translation via Sourcery
+## 7. Translation-review via Sourcery
 
-The [Sourcery GitHub App](https://github.com/marketplace/sourcery-ai)
-is installed on this repository. Per [`.sourcery.yaml`](./.sourcery.yaml),
-Sourcery watches every pull request and, for each added/modified file under
-`docs/**`, commits a matching translated file under
-`i18n/en/docusaurus-plugin-content-docs/current/...` in a follow-up commit on
-the PR branch.
+The [Sourcery GitHub App](https://github.com/marketplace/sourcery-ai) is
+installed on this repository and configured via
+[`.sourcery.yaml`](./.sourcery.yaml). On every pull request it leaves
+review comments that include:
 
-Rules enforced:
+- standard code-quality suggestions on JS/JSX/MDX files, and
+- **i18n-sync suggestions** for any added/modified file under `docs/**`:
+  if the matching English mirror under
+  `i18n/en/docusaurus-plugin-content-docs/current/...` is missing or
+  stale, Sourcery posts the proposed English translation in a GitHub
+  `suggestion` block. A maintainer applies it in one click.
+
+> **Sourcery does not push follow-up commits on its own.** Translations
+> land on the branch only when a maintainer accepts the suggestion or a
+> separate workflow commits accepted suggestions. If full auto-commit is
+> ever needed, wire a GitHub Action for it — Sourcery alone cannot do it.
+
+Rules enforced by the review instructions:
 
 - Preserve MDX component usage and all props.
 - Translate prose and text props only: `title`, `sidebar_label`,
@@ -218,17 +228,19 @@ Rules enforced:
   (CUDA, Bash, Git, RANSAC, TLS, etc.) untranslated.
 - Never rewrite the Chinese source in place.
 - If a contributor manually edits the English mirror in the same PR,
-  Sourcery will leave that file alone.
+  Sourcery treats that as a human override and does not propose a
+  replacement translation for that file.
 
 ### Installing Sourcery (repo admin, one-time)
 
 1. Visit [github.com/apps/sourcery-ai](https://github.com/apps/sourcery-ai)
    → **Install**.
-2. Grant access to `WUCG/Course_Review`.
-3. Sourcery will read `.sourcery.yaml` and start commenting on PRs.
+2. Grant access to `Washington-University-Chinese-Geeks/Course_Review`.
+3. Sourcery reads `.sourcery.yaml` and starts commenting on the next PR.
 
-If Sourcery produces a bad translation, simply edit the file under
-`i18n/en/...` and push — Sourcery will not overwrite human edits.
+If Sourcery produces a bad translation, just edit the file under
+`i18n/en/...` and push — Sourcery will not re-propose translations for
+files a human has already touched in that PR.
 
 ## 8. Local development
 
@@ -263,8 +275,8 @@ but does not deploy — on PRs so broken builds fail the check):
 2. `npm run build` — produces `build/`.
 3. `actions/upload-pages-artifact` + `actions/deploy-pages` → GitHub Pages.
 
-The site is served at `https://wucg.github.io/Course_Review/`. Update
-`url` / `baseUrl` in `docusaurus.config.js` if the repo is ever moved.
+The site is served at `https://washington-university-chinese-geeks.github.io/Course_Review/`.
+Update `url` / `baseUrl` in `docusaurus.config.js` if the repo is ever moved.
 
 To enable GitHub Pages the first time: repo **Settings → Pages → Source**:
 "GitHub Actions".

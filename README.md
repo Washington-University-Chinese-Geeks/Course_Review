@@ -76,7 +76,7 @@ npm run build         # 生产构建
 
 1. 拉代码 → `npm ci` → `npm run build`。
 2. 把 `build/` 上传为 GitHub Pages artifact。
-3. 部署到 `https://wucg.github.io/Course_Review/`。
+3. 部署到 `https://washington-university-chinese-geeks.github.io/Course_Review/`。
 
 PR 只跑构建（不部署），用于提早发现 broken MDX。
 

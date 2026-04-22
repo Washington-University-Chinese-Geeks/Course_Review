@@ -1,50 +1,75 @@
 version: "1"
 
 # Sourcery configuration for WUCG Course Review
-# Docs: https://docs.sourcery.ai/Configuration/Project-Settings/
+# Docs: https://docs.sourcery.ai/Reference/Configuration/
+#
+# What Sourcery does here
+# -----------------------
+# Sourcery is installed as a GitHub App and reviews every pull request.
+# On each PR it leaves inline review comments with:
+#   * standard code-quality suggestions on JS/JSX/MDX files
+#   * i18n-sync suggestions when a docs/** change has no matching mirror
+#     under i18n/en/docusaurus-plugin-content-docs/current/
+#
+# Sourcery DOES NOT push follow-up commits. Translation suggestions appear
+# as GitHub suggestion blocks in review comments; a maintainer applies them
+# with one click, or a separate CI job can commit the accepted suggestions.
+# If full auto-commit behavior is ever needed, add a workflow under
+# .github/workflows/ (Sourcery alone cannot do this).
 
-# Code-quality review on pull requests. We keep this light — the site is almost
-# entirely content (MDX), not code. Sourcery also comments on MDX/JS.
-rules:
-  - id: reviewer-enabled
-    enabled: true
+ignore:
+  - node_modules/**
+  - build/**
+  - .docusaurus/**
+  - static/**
+  - "**/*.docx"
 
-# Custom instructions given to the Sourcery AI reviewer on every PR.
-# Because the site is bilingual with Chinese as source of truth, Sourcery is
-# expected to act as an auto-translator for any changed docs content.
+# Rule filtering for code review. The site is almost entirely content,
+# so we keep every rule type on and let Sourcery decide when to comment.
+rule_settings:
+  rule_types:
+    - refactoring
+    - suggestion
+    - comment
+
+# Custom instructions surfaced to the Sourcery AI reviewer on every PR.
+# Chinese is the source of truth; English is a mirror under i18n/en/.
 review:
   instructions: |
     This repository is a bilingual Docusaurus site (WUCG Course Review).
-    **Chinese (zh-Hans) is the source of truth**. Content lives in `docs/`
-    (Chinese) and is mirrored in `i18n/en/docusaurus-plugin-content-docs/current/`
-    (English).
+    **Chinese (zh-Hans) is the source of truth.** Prose lives in `docs/`
+    (Chinese). The English mirror lives at the same relative path under
+    `i18n/en/docusaurus-plugin-content-docs/current/`.
 
-    For every PR that changes files under `docs/**`:
+    On every PR, review the diff and:
 
-    1. For each added or modified .md / .mdx file, generate (or update) the
-       matching English file at the same relative path under
-       `i18n/en/docusaurus-plugin-content-docs/current/`. Preserve frontmatter,
-       JSX component usage (<CourseInfo>, <CourseReview>, <CourseCard>), props,
-       Markdown structure, code fences, and escapes. Translate only the
-       *natural-language* text (prose, `title`, `sidebar_label`, string prop
-       values such as `description`, `content`, `evaluation`, `tips`,
-       `reviewer`, `professor`).
+    1. Code quality — leave standard refactor/suggestion/comment review
+       items on `.js` / `.jsx` / `.mdx` files as usual.
 
-    2. Keep WashU course codes (e.g. `CSE 1301`, `MATH 4301`, `ECON 4001`),
-       technical terms (CUDA, RANSAC, Bash, Git), and proper names untranslated.
+    2. i18n sync — for every added or modified `.md` / `.mdx` file under
+       `docs/**`:
 
-    3. Never translate `docs/` Chinese files into English in place — the
-       Chinese files stay Chinese. Only add/update the English mirror under
-       `i18n/en/`.
+       a. Check whether the matching English file exists at the same
+          relative path under
+          `i18n/en/docusaurus-plugin-content-docs/current/`.
+       b. If it does not exist, or its text no longer matches the Chinese
+          source, leave a review comment that includes the proposed
+          English translation inside a GitHub ````suggestion```` block so
+          a maintainer can apply it in one click.
+       c. Preserve frontmatter (`title`, `sidebar_label`), JSX component
+          usage (`<CourseInfo>`, `<CourseReview>`, `<CourseCard>`), all
+          prop names, code fences, and escape sequences.
+       d. Translate only natural-language text: prose, `title`,
+          `sidebar_label`, and string prop values `description`, `content`,
+          `evaluation`, `tips`, `reviewer`, `professor`.
+       e. Keep WashU course codes (e.g. `CSE 1301`, `MATH 4301`,
+          `ECON 4001`), institutional names (WashU, CMU, UIUC, MIT), and
+          technical terms (Java, Python, CUDA, RANSAC, Bash, Git, TA, AP,
+          GPA, TLS) untranslated.
 
-    4. If a PR modifies the English mirror directly, take that as a human
-       override and do not regenerate it.
+    3. Never propose edits to Chinese source files under `docs/**` beyond
+       the author's own changes — Chinese is source of truth.
 
-    5. Commit translation updates in a single follow-up commit on the PR
-       branch titled `chore(i18n): sync English translation`.
-
-ignore:
-  - node_modules
-  - build
-  - .docusaurus
-  - static
+    4. If a PR already modifies the English mirror in `i18n/en/...`, treat
+       that as a human override and do not propose a replacement
+       translation for that file.

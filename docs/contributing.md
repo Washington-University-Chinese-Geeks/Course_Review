@@ -12,7 +12,7 @@ sidebar_position: 99
 
 所有内容修改都通过 **GitHub Pull Request** 进行。仓库维护者会 review 后合并，合并后 GitHub Actions 会自动部署到站点。
 
-1. Fork [WUCG/Course_Review](https://github.com/WUCG/Course_Review) 到自己的 GitHub。
+1. Fork [Washington-University-Chinese-Geeks/Course_Review](https://github.com/Washington-University-Chinese-Geeks/Course_Review) 到自己的 GitHub。
 2. 创建新分支：`git checkout -b review/cse-2407-your-name`。
 3. 修改或新建课程 `.mdx` 文件（见下方示例）。
 4. 提交 PR，在描述中简单说明修改内容。

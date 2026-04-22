@@ -12,7 +12,7 @@ Thanks for helping WUCG Course Review grow — your review will help every stude
 
 All content changes go through **GitHub Pull Requests**. A maintainer reviews and merges; GitHub Actions then deploys the updated site.
 
-1. Fork [WUCG/Course_Review](https://github.com/WUCG/Course_Review).
+1. Fork [Washington-University-Chinese-Geeks/Course_Review](https://github.com/Washington-University-Chinese-Geeks/Course_Review).
 2. Create a branch: `git checkout -b review/cse-2407-your-name`.
 3. Edit or create the course `.mdx` file (see below).
 4. Open a PR describing what you changed.

@@ -7,10 +7,10 @@ const config = {
   tagline: 'WashU 课程一手评价与经验分享 · First-hand course reviews from WashU students',
   favicon: 'img/favicon.ico',
 
-  url: 'https://wucg.github.io',
+  url: 'https://washington-university-chinese-geeks.github.io',
   baseUrl: '/Course_Review/',
 
-  organizationName: 'WUCG',
+  organizationName: 'Washington-University-Chinese-Geeks',
   projectName: 'Course_Review',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
@@ -48,7 +48,7 @@ const config = {
           sidebarPath: './sidebars.js',
           routeBasePath: '/',
           editUrl:
-            'https://github.com/WUCG/Course_Review/edit/main/',
+            'https://github.com/Washington-University-Chinese-Geeks/Course_Review/edit/main/',
         },
         blog: false,
         theme: {
@@ -93,7 +93,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/WUCG/Course_Review',
+            href: 'https://github.com/Washington-University-Chinese-Geeks/Course_Review',
             label: 'GitHub',
             position: 'right',
           },
@@ -116,7 +116,7 @@ const config = {
               {label: 'Contributor Guide', to: '/contributing'},
               {
                 label: 'Open a PR',
-                href: 'https://github.com/WUCG/Course_Review/pulls',
+                href: 'https://github.com/Washington-University-Chinese-Geeks/Course_Review/pulls',
               },
             ],
           },
@@ -125,7 +125,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/WUCG/Course_Review',
+                href: 'https://github.com/Washington-University-Chinese-Geeks/Course_Review',
               },
               {
                 label: 'WashU Bulletin',
