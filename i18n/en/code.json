@@ -1,0 +1,81 @@
+{
+  "landing.title": {
+    "message": "WUCG Course Review",
+    "description": "Browser title on the landing page"
+  },
+  "landing.description": {
+    "message": "First-hand course reviews and advice for WashU CS, Math, and Economics students."
+  },
+  "landing.heading": {
+    "message": "WUCG Course Review"
+  },
+  "landing.tagline": {
+    "message": "A community-maintained doc for WashU course reviews. Help each other learn real stuff and keep your GPA alive."
+  },
+  "landing.btn.cs": {
+    "message": "CS Courses"
+  },
+  "landing.btn.math": {
+    "message": "Math Courses"
+  },
+  "landing.btn.econ": {
+    "message": "Econ Courses"
+  },
+  "landing.how.read.title": {
+    "message": "Reading reviews"
+  },
+  "landing.how.read.body": {
+    "message": "Pick CS / Math / Econ from the top nav, then find your course in the left sidebar. Reviews are written by past students — professors, exams, and grading change every semester, so double-check anything load-bearing."
+  },
+  "landing.how.write.title": {
+    "message": "Writing a review"
+  },
+  "landing.how.write.body": {
+    "message": "Thanks for contributing! Fork the GitHub repo and open a Pull Request: add a new <CourseReview> block to an existing course page, or create a new page. Keep objective facts in 'content', subjective takes in 'evaluation'."
+  },
+  "landing.how.write.link": {
+    "message": "Contributor guide →"
+  },
+  "landing.how.i18n.title": {
+    "message": "Multilingual"
+  },
+  "landing.how.i18n.body": {
+    "message": "Chinese is the source of truth. English translations are generated automatically by Sourcery on new PRs. Switch language from the top-right."
+  },
+  "courseInfo.oldCodes": {
+    "message": "old:"
+  },
+  "courseInfo.lastOffered": {
+    "message": "Last offered"
+  },
+  "courseInfo.credits": {
+    "message": "Credits"
+  },
+  "courseInfo.catalogLink": {
+    "message": "WashU Bulletin ↗"
+  },
+  "courseReview.reviewer": {
+    "message": "Reviewer"
+  },
+  "courseReview.professor": {
+    "message": "Professor"
+  },
+  "courseReview.semester": {
+    "message": "Semester"
+  },
+  "courseReview.content": {
+    "message": "Course Content"
+  },
+  "courseReview.evaluation": {
+    "message": "Evaluation"
+  },
+  "courseReview.tips": {
+    "message": "Tips & Notes"
+  },
+  "courseCard.hasReview": {
+    "message": "has review"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "Language"
+  }
+}

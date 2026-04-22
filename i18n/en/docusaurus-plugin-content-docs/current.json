@@ -1,0 +1,19 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.csSidebar.category.Reviewed Courses": {
+    "message": "Reviewed Courses",
+    "description": "The label for category Reviewed Courses in sidebar csSidebar"
+  },
+  "sidebar.csSidebar.doc.CS Overview": {
+    "message": "CS Overview"
+  },
+  "sidebar.mathSidebar.doc.Math Overview": {
+    "message": "Math Overview"
+  },
+  "sidebar.econSidebar.doc.Econ Overview": {
+    "message": "Econ Overview"
+  }
+}

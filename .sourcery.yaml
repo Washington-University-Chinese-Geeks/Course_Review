@@ -1,0 +1,50 @@
+version: "1"
+
+# Sourcery configuration for WUCG Course Review
+# Docs: https://docs.sourcery.ai/Configuration/Project-Settings/
+
+# Code-quality review on pull requests. We keep this light — the site is almost
+# entirely content (MDX), not code. Sourcery also comments on MDX/JS.
+rules:
+  - id: reviewer-enabled
+    enabled: true
+
+# Custom instructions given to the Sourcery AI reviewer on every PR.
+# Because the site is bilingual with Chinese as source of truth, Sourcery is
+# expected to act as an auto-translator for any changed docs content.
+review:
+  instructions: |
+    This repository is a bilingual Docusaurus site (WUCG Course Review).
+    **Chinese (zh-Hans) is the source of truth**. Content lives in `docs/`
+    (Chinese) and is mirrored in `i18n/en/docusaurus-plugin-content-docs/current/`
+    (English).
+
+    For every PR that changes files under `docs/**`:
+
+    1. For each added or modified .md / .mdx file, generate (or update) the
+       matching English file at the same relative path under
+       `i18n/en/docusaurus-plugin-content-docs/current/`. Preserve frontmatter,
+       JSX component usage (<CourseInfo>, <CourseReview>, <CourseCard>), props,
+       Markdown structure, code fences, and escapes. Translate only the
+       *natural-language* text (prose, `title`, `sidebar_label`, string prop
+       values such as `description`, `content`, `evaluation`, `tips`,
+       `reviewer`, `professor`).
+
+    2. Keep WashU course codes (e.g. `CSE 1301`, `MATH 4301`, `ECON 4001`),
+       technical terms (CUDA, RANSAC, Bash, Git), and proper names untranslated.
+
+    3. Never translate `docs/` Chinese files into English in place — the
+       Chinese files stay Chinese. Only add/update the English mirror under
+       `i18n/en/`.
+
+    4. If a PR modifies the English mirror directly, take that as a human
+       override and do not regenerate it.
+
+    5. Commit translation updates in a single follow-up commit on the PR
+       branch titled `chore(i18n): sync English translation`.
+
+ignore:
+  - node_modules
+  - build
+  - .docusaurus
+  - static

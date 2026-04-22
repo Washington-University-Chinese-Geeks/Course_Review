@@ -1,0 +1,35 @@
+{
+  "link.title.Docs": {
+    "message": "Docs",
+    "description": "The title of the footer links column with title=Docs"
+  },
+  "link.title.Contribute": {
+    "message": "Contribute",
+    "description": "The title of the footer links column with title=Contribute"
+  },
+  "link.title.More": {
+    "message": "More",
+    "description": "The title of the footer links column with title=More"
+  },
+  "link.item.label.CS Courses": {
+    "message": "CS Courses"
+  },
+  "link.item.label.Math Courses": {
+    "message": "Math Courses"
+  },
+  "link.item.label.Econ Courses": {
+    "message": "Econ Courses"
+  },
+  "link.item.label.Contributor Guide": {
+    "message": "Contributor Guide"
+  },
+  "link.item.label.Open a PR": {
+    "message": "Open a PR"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub"
+  },
+  "link.item.label.WashU Bulletin": {
+    "message": "WashU Bulletin"
+  }
+}

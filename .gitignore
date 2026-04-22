@@ -5,15 +5,13 @@
 /.pnp
 .pnp.js
 
+# docusaurus
+.docusaurus
+.cache-loader
+/build
+
 # testing
 /coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
 
 # misc
 .DS_Store
@@ -33,4 +31,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+# temp docx extraction
+_docx_*.xml
+_docx_*.txt

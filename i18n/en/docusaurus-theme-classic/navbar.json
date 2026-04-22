@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "WUCG Course Review",
+    "description": "The title in the navbar"
+  },
+  "item.label.CS": {
+    "message": "CS",
+    "description": "Navbar item with label CS"
+  },
+  "item.label.Math": {
+    "message": "Math",
+    "description": "Navbar item with label Math"
+  },
+  "item.label.Econ": {
+    "message": "Econ",
+    "description": "Navbar item with label Econ"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

@@ -1,0 +1,193 @@
+/* WUCG Course Review custom styles */
+
+:root {
+  --ifm-color-primary: #a51417;
+  --ifm-color-primary-dark: #941214;
+  --ifm-color-primary-darker: #8b1113;
+  --ifm-color-primary-darkest: #730e10;
+  --ifm-color-primary-light: #b6161a;
+  --ifm-color-primary-lighter: #bf171b;
+  --ifm-color-primary-lightest: #d81a1f;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #e8636a;
+  --ifm-color-primary-dark: #e34751;
+  --ifm-color-primary-darker: #e13944;
+  --ifm-color-primary-darkest: #c71f2b;
+  --ifm-color-primary-light: #ed7f84;
+  --ifm-color-primary-lighter: #ef8c91;
+  --ifm-color-primary-lightest: #f4b2b6;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Invert the navbar logo (favicon.ico) on dark mode */
+[data-theme='dark'] .navbar-logo {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.course-info {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0 1.5rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.course-info__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.course-info__code {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ifm-color-primary);
+}
+
+.course-info__title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.course-info__old-codes {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+  background: var(--ifm-color-emphasis-100);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.course-info__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0.5rem;
+}
+
+.course-info__description {
+  font-size: 0.95rem;
+  color: var(--ifm-color-content);
+  margin: 0;
+}
+
+.course-review {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0;
+}
+
+.course-review__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--ifm-color-emphasis-300);
+}
+
+.course-review__badge {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.course-review__section {
+  margin: 0.75rem 0;
+}
+
+.course-review__section-label {
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0.25rem;
+}
+
+.course-review__section-body {
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.course-card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--ifm-background-surface-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.course-card a {
+  text-decoration: none;
+}
+
+.course-card__code {
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  font-size: 0.95rem;
+}
+
+.course-card__title {
+  font-weight: 600;
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1rem;
+  color: var(--ifm-color-content);
+}
+
+.course-card__desc {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.course-card__has-review {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 999px;
+}
+
+.hero-landing {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(180deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darker) 100%);
+  color: white;
+}
+
+.hero-landing__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
